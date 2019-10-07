@@ -1,24 +1,35 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Getting Started Extension's Popup</title>
-    <style>
-      body {
-        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
-        font-size: 100%;
-      }
-    </style>
-    <script src="js/vendor.js"></script>
-  </head>
-  <body>
-    <ul style="min-width: 700px;">
-    <li>Current URL: <span id="url"></span></li>
-    <li>Current Time: <span id="time"></span></li>
-    </ul>
-    <button id="countUp">count up</button>
-    <button id="changeBackground">change background</button>
-    <script src="js/popup.js"></script>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Getting Started Extension's Popup</title>
+        <style>
+            body {
+                font-family: 'Segoe UI', 'Lucida Grande', Tahoma, sans-serif;
+                padding: 2px;
+            }
+            #app {
+                width: 150px;
+            }
+        </style>
+        <script src="js/vendor.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <a id="allTabsInOneWindow" href="#">all tabs in one window</a>
+            <hr />
+            <a id="20TabsPerWindow" href="#">20 tabs per window</a>
+            <hr />
+            <a id="40TabsPerWindow" href="#">40 tabs per window</a>
+            <hr />
+            <a id="closeNewTabs" href="#">close all newtab</a>
+            <hr />
+            <a id="closeDuplicate" href="#">close duplicate tabs</a>
+            <hr />
+            <a id="sortTabsByHostname" href="#">sort tab by hostname</a>
+            <hr />
+            <a id="injectScript" href="#">inject</a>
+        </div>
+        <script src="js/popup.js"></script>
+    </body>
 </html>
-

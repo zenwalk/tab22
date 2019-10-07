@@ -1,32 +1,70 @@
-import * as moment from 'moment';
-import * as $ from 'jquery';
+import * as $ from "jquery";
 
-let count = 0;
-
-$(function() {
+$(() => {
   const queryInfo = {
-    active: true,
     currentWindow: true
   };
 
   chrome.tabs.query(queryInfo, function(tabs) {
-    $('#url').text(tabs[0].url);
-    $('#time').text(moment().format('YYYY-MM-DD HH:mm:ss'));
+    let count = tabs.length;
+    chrome.browserAction.setBadgeText({ text: "" + count });
   });
 
-  chrome.browserAction.setBadgeText({text: count.toString()});
-  $('#countUp').click(()=>{
-    chrome.browserAction.setBadgeText({text: (++count).toString()});
-  });
-
-  $('#changeBackground').click(()=>{
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-      chrome.tabs.sendMessage(tabs[0].id, {
-        color: '#555555'
-      },
-      function(msg) {
-        console.log("result message:", msg);
-      });
+  $("#allTabsInOneWindow").click(() => {
+    chrome.runtime.sendMessage({
+      type: "allTabsInOneWindow"
     });
+  });
+
+  $("#sortTabsByHostname").click(() => {
+    chrome.runtime.sendMessage({
+      type: "sortTabsByHostname"
+    });
+  });
+
+  $("#20TabsPerWindow").click(() => {
+    chrome.runtime.sendMessage({
+      type: "20TabsPerWindow"
+    });
+  });
+
+  $("#40TabsPerWindow").click(() => {
+    chrome.runtime.sendMessage({
+      type: "40TabsPerWindow"
+    });
+  });
+
+  $("#closeNewTabs").click(() => {
+    chrome.runtime.sendMessage({
+      type: "closeNewTabs"
+    });
+  });
+
+  $("#closeDuplicate").click(() => {
+    chrome.runtime.sendMessage({
+      type: "closeDuplicate"
+    });
+  });
+
+  $("#injectScript").click(() => {
+    // chrome.runtime.sendMessage({
+    //   type: "closeDuplicate"
+    // });
+
+    // chrome.tabs.executeScript(
+    //   null,
+    //   { code: `Array.from(document.querySelectorAll(".delfav")).map(el => el.click());` },
+    //   result => {
+    //     console.log(result);
+    //   }
+    // );
+
+    chrome.tabs.executeScript(
+      null,
+      { file: "./js/inject_script.js" },
+      result => {
+        console.log(result);
+      }
+    );
   });
 });

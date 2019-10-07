@@ -1,7 +1,7 @@
 {
-  "name": "chrome-extension-typescript-starter",
+  "name": "tab22",
   "version": "1.0.0",
-  "description": "chrome-extension-typescript-starter",
+  "description": "tab22",
   "main": "index.js",
   "scripts": {
     "watch": "webpack --config webpack/webpack.dev.js --watch",
@@ -12,21 +12,21 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/chibat/chrome-extension-typescript-starter.git"
+    "url": "https://github.com/zenwalk/tab22.git"
   },
   "dependencies": {
     "jquery": "^3.4.1",
     "moment": "~2.24.0"
   },
   "devDependencies": {
-    "@types/chrome": "0.0.86",
-    "@types/jquery": "^3.3.30",
-    "copy-webpack-plugin": "^5.0.3",
-    "rimraf": "^2.6.3",
-    "ts-loader": "^5.4.5",
-    "typescript": "~3.4.5",
-    "webpack": "~4.17.2",
-    "webpack-cli": "~3.1.0",
-    "webpack-merge": "~4.2.1"
+    "@types/chrome": "0.0.89",
+    "@types/jquery": "^3.3.31",
+    "copy-webpack-plugin": "^5.0.4",
+    "rimraf": "^3.0.0",
+    "ts-loader": "^6.2.0",
+    "typescript": "~3.6.3",
+    "webpack": "~4.41.0",
+    "webpack-cli": "~3.3.9",
+    "webpack-merge": "~4.2.2"
   }
 }
