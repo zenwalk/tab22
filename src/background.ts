@@ -141,6 +141,9 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
         case '40TabsPerWindow':
             TabsPerWindow(40);
             break;
+        case '80TabsPerWindow':
+            TabsPerWindow(80);
+            break;
         case 'closeNewTabs':
             closeNewTabs();
             break;

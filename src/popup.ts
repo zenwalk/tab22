@@ -34,6 +34,12 @@ $(() => {
     });
   });
 
+  $("#80TabsPerWindow").click(() => {
+    chrome.runtime.sendMessage({
+      type: "80TabsPerWindow"
+    });
+  });
+
   $("#closeNewTabs").click(() => {
     chrome.runtime.sendMessage({
       type: "closeNewTabs"
